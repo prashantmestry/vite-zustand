@@ -1,13 +1,20 @@
-import DisplayColors from "./pages/DisplayColors";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Contact from "./pages/Contact";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import TopNavigation from "./component/TopNavigation";
 
 function App() {
   return (
-    <div className="container p-4 bg-slate-400">
-      <h1>Here is title of page</h1>
-      <div>
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
-        <DisplayColors />
-      </div>
+    <div className="container mx-auto p-4 h-screen bg-slate-200">
+      <BrowserRouter>
+        <TopNavigation />
+        <Routes>
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
